@@ -1,10 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int n;
-    cin>>n;
+string calcFactorial(int n){
 
     string factorial="1";
 
@@ -24,5 +21,13 @@ int main()
 
     reverse(factorial.begin(),factorial.end());
 
-    cout<<factorial;
+    return factorial;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    cout<<calcFactorial(n);
 }

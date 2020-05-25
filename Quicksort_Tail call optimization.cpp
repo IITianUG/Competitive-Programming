@@ -1,11 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 //Worst case space complexity (for function call stack) - O (log n)
 
-int qPartition(vector<int>& arr, int l, int r)
+int qPartition(vector<int> &arr, int l, int r)
 {
     int pivot = arr[r];
-    int i = l-1;
+    int i = l - 1;
 
     for (int j = l; j < r; j++)
     {
@@ -19,12 +19,15 @@ int qPartition(vector<int>& arr, int l, int r)
     return i + 1;
 }
 
-void quickSort(vector<int>& arr, int l, int r){
+void quickSort(vector<int> &arr, int l, int r)
+{
 
-    while(l<r){
+    while (l < r)
+    {
         int idx = qPartition(arr, l, r);
 
-        if (idx - l < r - idx) {
+        if (idx - l < r - idx)
+        {
             //recursive call for smaller part
             quickSort(arr, l, idx - 1);
             //tail call optimization for larger part
@@ -42,21 +45,24 @@ void quickSort(vector<int>& arr, int l, int r){
     }
 }
 
-int main() {
+int main()
+{
     int n;
-    cin>>n;
+    cin >> n;
 
     vector<int> arr(n);
 
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
 
-    quickSort(arr, 0, n-1);
+    quickSort(arr, 0, n - 1);
 
-    cout<<"Printing array sorted using Quicksort\n";
+    cout << "Printing array sorted using Quicksort\n";
 
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
     }
 }

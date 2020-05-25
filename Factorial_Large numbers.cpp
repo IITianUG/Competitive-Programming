@@ -29,5 +29,5 @@ int main()
     int n;
     cin>>n;
 
-    cout<<calcFactorial(n);
+    cout<<"Factorial of "<<n<<" is "<<calcFactorial(n);
 }

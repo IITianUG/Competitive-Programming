@@ -54,7 +54,7 @@ int main() {
 
     quickSort(arr, 0, n-1);
 
-    cout<<"Printing sorted array\n";
+    cout<<"Printing array sorted using Quicksort\n";
 
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";

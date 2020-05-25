@@ -57,7 +57,7 @@ vector<int> buildSuffixArray(string s, int n)
         }
         step++;
     }
-
+	
 	for (int i = 0; i < n; i++){
 		suffixArr.push_back(L[i].originalIdx);
 	}

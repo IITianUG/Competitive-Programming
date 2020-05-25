@@ -1,1 +1,1 @@
-A collection of source codes of competitive programming concepts with minor optimizations.
+A collection of source codes of Competitive Programming concepts with minor optimizations.

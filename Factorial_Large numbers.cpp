@@ -1,15 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-string factorial;
 
 int main()
 {
-    string factorial="";
-
     int n;
     cin>>n;
 
-    factorial+='1';
+    string factorial="1";
 
     long long y,c=0;
 

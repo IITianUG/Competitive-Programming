@@ -1,1 +1,1 @@
-# Competitive-Programming
+A collection of source codes of competitive programming concepts with minor optimizations.

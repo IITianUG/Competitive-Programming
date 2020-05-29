@@ -4,7 +4,8 @@ using namespace std;
 #define MAXLG 17
 int sortIndex[MAXLG][MAXN];
 
-//Time complexity - O (n*(log n)^2)
+//Time complexity of Suffix Array - O (n*(log n)^2)
+//Time complexity of LCP Array - O (n)
 
 struct entry
 {
@@ -17,8 +18,10 @@ int cmp(entry x, entry y)
     return x.suffix < y.suffix;
 }
 
-vector<int> buildSuffixArray(string s, int n)
+vector<int> buildSuffixArray(string s)
 {
+    int n = s.length();
+
     vector<int> suffixArr;
 
     if (n == 1)
@@ -76,6 +79,42 @@ vector<int> buildSuffixArray(string s, int n)
     return suffixArr;
 }
 
+vector<int> kasaiLCP(string s, vector<int> sa)
+{
+    int n = s.size();
+
+    vector<int> lcp(n, 0);
+    vector<int> sufinv(n, 0);
+
+    for (int i = 0; i < n; i++)
+    {
+        sufinv[sa[i]] = i;
+    }
+
+    int h = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (sufinv[i] == 0)
+        {
+            continue;
+        }
+
+        int k = sa[sufinv[i] - 1];
+
+        while (i + h < n && k + h < n && s[i + h] == s[k + h])
+        {
+            h++;
+        }
+        lcp[sufinv[i]] = h;
+
+        if (h > 0)
+        {
+            h--;
+        }
+    }
+    return lcp;
+}
+
 int main()
 {
     string s;
@@ -83,10 +122,19 @@ int main()
 
     int n = s.length();
 
-    vector<int> suffixArr = buildSuffixArray(s, n);
+    vector<int> suffixArr = buildSuffixArray(s);
+    vector<int> lcp = kasaiLCP(s, suffixArr);
 
+    cout << "Printing Suffix Array: ";
     for (int i = 0; i < n; i++)
     {
         cout << suffixArr[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Printing LCP Array: ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << lcp[i] << " ";
     }
 }

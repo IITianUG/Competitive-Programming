@@ -82,6 +82,7 @@ int main()
 
     vector<int> lps = computeLPS(pat);
 
+    cout<<"LPS array is: ";
     for (int i = 0; i < lps.size(); i++)
     {
         cout << lps[i] << " ";

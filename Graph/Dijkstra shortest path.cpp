@@ -10,14 +10,14 @@ vector<int> Dijkstra(int src, int n)
     vector<int> d(n + 1, INF);
 
     d[src] = 0;
-    //max heap, so pushing negative distance values
-    priority_queue<pair<int, int>> q;
+    //min heap
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
     q.push(make_pair(0, src));
 
     while (!q.empty())
     {
         int v = q.top().second;
-        int cur_d = -q.top().first;
+        int cur_d = q.top().first;
         q.pop();
 
         //check if this is the valid pair
@@ -35,7 +35,7 @@ vector<int> Dijkstra(int src, int n)
             {
                 //do not remove old pairs from the queue
                 d[to] = d[v] + len;
-                q.push(make_pair(-d[to], to));
+                q.push(make_pair(d[to], to));
             }
         }
     }

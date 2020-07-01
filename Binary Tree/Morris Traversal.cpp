@@ -59,10 +59,11 @@ void inOrder(Node *root)
         }
         else
         {
-
             pre = current->left;
             while (pre->right != NULL && pre->right != current)
+            {
                 pre = pre->right;
+            }
 
             if (pre->right == NULL)
             {
@@ -81,9 +82,7 @@ void inOrder(Node *root)
 
 int main()
 {
-
     Node *root = NULL;
-
     int n;
     int data;
     cin >> n;

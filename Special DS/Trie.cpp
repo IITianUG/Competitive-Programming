@@ -107,7 +107,6 @@ bool Trie::StartsWith(const string &prefix)
 
 TrieNode *Trie::RemoveWordHelper(TrieNode *cur, const string &word, int depth)
 {
-
     if (cur == NULL)
     {
         return NULL;

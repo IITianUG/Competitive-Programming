@@ -100,7 +100,6 @@ BSTNode *BST::DeleteKeyHelper(BSTNode *node, int key)
 	// If both children exist
 	else
 	{
-
 		BSTNode *succParent = node;
 
 		//find successor

@@ -21,7 +21,7 @@ vector<int> Dijkstra(int src, int n)
         q.pop();
 
         //check if this is the valid pair
-        if (cur_d > d[v])
+        if (cur_d != d[v])
         {
             continue;
         }
